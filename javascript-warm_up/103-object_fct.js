@@ -7,10 +7,14 @@ const myObject = {
 
 console.log(myObject);
 
-myObject.incr = function incr() {
+myObject.incr = function () {
     this.value += 1;
 };
 
+console.log(myObject);
 myObject.incr();
+console.log(myObject);
 myObject.incr();
+console.log(myObject);
 myObject.incr();
+console.log(myObject);
