@@ -11,7 +11,6 @@ myObject.incr = function incr() {
     this.value += 1;
 };
 
-myObject.incr.displayName = 'incr';
 
 myObject.incr();
 console.log(myObject);
