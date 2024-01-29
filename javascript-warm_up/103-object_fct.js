@@ -1,3 +1,4 @@
+#!/usr/bin/node
 
 const myObject = {
     type: 'object',
@@ -6,7 +7,7 @@ const myObject = {
 
 console.log(myObject);
 
-myObject.incr = function () {
+myObject.incr = function incr() {
     this.value += 1;
 };
 
