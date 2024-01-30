@@ -7,7 +7,14 @@ const myObject = {
         this.value += 1;
     }
 };
-const jsonString = JSON.stringify(myObject);
+
+// Convert object to JSON string with custom replacer
+const jsonString = JSON.stringify(myObject, (key, value) => {
+    if (typeof value === 'string' && key !== undefined) {
+        return `${key}: '${value}'`;
+    }
+    return value;
+});
 
 console.log(jsonString);
 
