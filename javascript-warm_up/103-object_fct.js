@@ -7,13 +7,14 @@ const myObject = {
 
 console.log(myObject);
 
-myObject.incr = function incr() {
-    return myObject.value += 1;
-
+myObject.incr = function () {
+    const incrFunction = function () {
+        myObject.value += 1;
+    };
+    incrFunction.displayName = 'incr';
+    return incrFunction;
 };
 
-
-myObject.incr = myObject.incr();
 
 myObject.incr();
 console.log(myObject);
