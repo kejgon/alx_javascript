@@ -8,11 +8,9 @@ const myObject = {
 console.log(myObject);
 
 myObject.incr = function () {
-    const incrFunction = function () {
-        myObject.value += 1;
-    };
-    incrFunction.displayName = 'incr';
-    return incrFunction;
+
+    return myObject.value += 1;
+
 };
 
 
