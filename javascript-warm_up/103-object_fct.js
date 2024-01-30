@@ -8,15 +8,10 @@ const myObject = {
     }
 };
 
-// Convert object to JSON string with custom replacer
-const jsonString = JSON.stringify(myObject, (key, value) => {
-    if (typeof value === 'string' && key !== undefined) {
-        return `${key}: '${value}'`;
-    }
-    return value;
-});
+// Manually format the output for the first object
+const firstObjectOutput = `{ type: '${myObject.type}', value: ${myObject.value} }`;
 
-console.log(jsonString);
+console.log(firstObjectOutput);
 
 function displayObject(obj) {
     console.log(`{ type: '${obj.type}', value: ${obj.value}, incr: [Function] }`);
