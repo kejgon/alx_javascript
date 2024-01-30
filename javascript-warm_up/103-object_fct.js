@@ -3,15 +3,14 @@
 const myObject = {
     type: 'object',
     value: 12,
+    get incr() {
+        return function () {
+            this.value += 1;
+        }.bind(this);
+    }
 };
+
 console.log(myObject);
-
-function incr() {
-    return myObject.value += 1;
-}
-
-myObject.incr = incr;
-
 
 myObject.incr();
 console.log(myObject);
