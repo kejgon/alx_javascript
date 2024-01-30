@@ -7,12 +7,14 @@ const myObject = {
         this.value += 1;
     }
 };
+const jsonString = JSON.stringify(myObject);
+
+console.log(jsonString);
 
 function displayObject(obj) {
     console.log(`{ type: '${obj.type}', value: ${obj.value}, incr: [Function] }`);
 }
 
-displayObject(myObject);
 myObject.incr();
 displayObject(myObject);
 myObject.incr();
