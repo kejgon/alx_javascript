@@ -13,7 +13,6 @@ myObject.incr = function incr() {
     };
 };
 
-console.log(myObject);
 
 myObject.incr = myObject.incr();
 
