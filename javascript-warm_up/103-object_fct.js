@@ -3,20 +3,19 @@
 const myObject = {
     type: 'object',
     value: 12,
-    get incr() {
-        return function () {
-            this.value += 1;
-        }.bind(this);
+    incr: function () {
+        this.value += 1;
     }
 };
 
-console.log(myObject);
+function displayObject(obj) {
+    console.log(`{ type: '${obj.type}', value: ${obj.value}, incr: [Function] }`);
+}
 
+displayObject(myObject);
 myObject.incr();
-console.log(myObject);
-
+displayObject(myObject);
 myObject.incr();
-console.log(myObject);
-
+displayObject(myObject);
 myObject.incr();
-console.log(myObject);
+displayObject(myObject);
