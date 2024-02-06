@@ -28,3 +28,6 @@ request.get(apiUrl, (error, response, body) => {
         console.log(moviesWithWedge.length);
     }
 });
+
+// Print the number 10
+console.log(10);
