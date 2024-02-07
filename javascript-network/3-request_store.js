@@ -3,9 +3,6 @@ const request = require('request');
 // Import the file system module
 const fs = require('fs');
 
-// Function to count the number of characters in a string
-const countChars = (text) => text.replace(/\s/g, '').length;
-
 // Get the URL and file path from command line arguments
 const url = process.argv[2];
 const filePath = process.argv[3];
@@ -26,35 +23,7 @@ request.get(url, (error, response, body) => {
                 console.error('Error writing file:', err);
             } else {
                 // If successful, print a success message
-                console.log(`File saved successfully: ${filePath}`);
-
-                // Output the content of the file
-                console.log(`- [Got]`);
-                console.log(body);
-
-                // Output the length of the content
-                console.log(`(${countChars(body)} chars long)`);
-
-                // Check if the content matches the expected output
-                switch (url) {
-                    case 'http://localhost:5050/route_0':
-                        console.log(`[stderr]:`);
-                        console.log(`(0 chars long)`);
-                        break;
-                    case 'http://localhost:5050/route_1':
-                        console.log(`Correct output - big text - ${url}`);
-                        break;
-                    case 'http://localhost:5050/route_2':
-                        console.log(`Correct output - empty text - ${url}`);
-                        break;
-                    default:
-                        console.log(`Correct output - small text - ${url}`);
-                        console.log('C is fun!');
-                        console.log('(44 chars long)');
-                        console.log('[stderr]: [Anything]');
-                        console.log('(0 chars long)');
-                        break;
-                }
+                console.log('File saved successfully:', filePath);
             }
         });
     }
