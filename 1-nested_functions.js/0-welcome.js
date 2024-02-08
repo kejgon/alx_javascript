@@ -9,7 +9,5 @@ function welcome(firstName, lastName) {
 }
 
 // Test the function
-welcome('Holberton', 'School');
+welcome('Holberton', 'School')
 
-// Uncomment the line below to test the reference error
-// alert(fullName);
