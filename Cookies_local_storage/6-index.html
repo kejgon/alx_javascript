@@ -1,0 +1,68 @@
+<!-- 6-index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <script>
+
+        // Available items array
+        const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+        // Check if session storage is supported
+        function isSessionStorageSupported() {
+            try {
+                return 'sessionStorage' in window && window['sessionStorage'] !== null;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Add item to cart
+        function addItemToCart(item) {
+            if (isSessionStorageSupported()) {
+                sessionStorage.setItem(item, true);
+            } else {
+                alert("Sorry, your browser does not support Web storage. Try again with a better one.");
+            }
+        }
+
+        // Create store
+        function createStore() {
+            const ul = document.createElement('ul');
+            for (const item of availableItems) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                li.addEventListener('click', function () {
+                    addItemToCart(item);
+                });
+                ul.appendChild(li);
+            }
+            document.body.appendChild(ul);
+        }
+
+        // Display cart
+        function displayCart() {
+            if (isSessionStorageSupported()) {
+                const cartItems = Object.keys(sessionStorage);
+                if (cartItems.length > 0) {
+                    const p = document.createElement('p');
+                    p.textContent = `You previously had ${cartItems.length} items in your cart`;
+                    document.body.appendChild(p);
+                }
+            }
+        }
+
+        // Initialize
+        createStore();
+        displayCart();
+
+    </script>
+</body>
+
+</html>

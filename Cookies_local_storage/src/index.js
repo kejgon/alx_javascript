@@ -230,23 +230,23 @@ function showCookies() {
     document.body.appendChild(cookiesContainer);
 }
 
-function getCookie(name) {
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const cookies = decodedCookie.split(';');
-    for (let cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.trim().split('=');
-        if (cookieName === name) {
-            return cookieValue;
-        }
-    }
-    return '';
-}
+// function getCookie(name) {
+//     const decodedCookie = decodeURIComponent(document.cookie);
+//     const cookies = decodedCookie.split(';');
+//     for (let cookie of cookies) {
+//         const [cookieName, cookieValue] = cookie.trim().split('=');
+//         if (cookieName === name) {
+//             return cookieValue;
+//         }
+//     }
+//     return '';
+// }
 
-function deleteCookiesAndShowForm() {
-    document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    showForm();
-}
+// function deleteCookiesAndShowForm() {
+//     document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+//     document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+//     showForm();
+// }
 
 function showForm() {
     const welcomeMessage = document.getElementById('welcomeMessage');
@@ -266,8 +266,9 @@ function hideForm() {
     }
 }
 
+
 function showWelcomeMessageOrForm() {
-    const firstName = getCookie('firstname');
+    const firstName = Cookies.get('firstname');
     if (firstName) {
         hideForm();
         const welcomeMessage = document.getElementById('welcomeMessage');
@@ -289,4 +290,3 @@ function showWelcomeMessageOrForm() {
         showForm();
     }
 }
-
