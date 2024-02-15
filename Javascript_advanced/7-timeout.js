@@ -7,4 +7,5 @@ setTimeout(function () {
     console.log('End of the loop printing');
 }, 0);
 
+
 console.log('Final code block to be executed');
