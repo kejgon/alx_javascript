@@ -1,3 +1,4 @@
+////!1 **** 0. Create basic cookie
 // document.addEventListener('DOMContentLoaded', () => {
 //     const loginBtn = document.getElementById('loginBtn');
 //     const showCookiesBtn = document.getElementById('showCookiesBtn');
@@ -28,6 +29,7 @@
 //     document.body.appendChild(cookiesContainer);
 // }
 
+////!1 **** 1. Create cookie with expiration date and specific path
 // document.addEventListener('DOMContentLoaded', () => {
 //     const loginBtn = document.getElementById('loginBtn');
 //     const showCookiesBtn = document.getElementById('showCookiesBtn');
@@ -63,6 +65,7 @@
 //     document.body.appendChild(cookiesContainer);
 // }
 
+////!1 **** 2. Read cookie
 // document.addEventListener('DOMContentLoaded', () => {
 //     const loginBtn = document.getElementById('loginBtn');
 //     const showCookiesBtn = document.getElementById('showCookiesBtn');
@@ -106,7 +109,97 @@
 //     return '';
 // }
 
+////!1 **** 3. Delete cookie and mini application
+// document.addEventListener('DOMContentLoaded', () => {
+//     showWelcomeMessageOrForm();
+//     document.getElementById('loginBtn').addEventListener('click', setCookies);
+// });
 
+// function setCookies() {
+//     const firstNameInput = document.getElementById('firstname').value;
+//     const emailInput = document.getElementById('email').value;
+
+//     // Set cookies to expire in 10 days
+//     const expirationDate = new Date();
+//     expirationDate.setDate(expirationDate.getDate() + 10);
+//     const expires = "expires=" + expirationDate.toUTCString();
+
+//     // Set cookies
+//     document.cookie = `firstname=${encodeURIComponent(firstNameInput)}; expires=${expires}; path=/`;
+//     document.cookie = `email=${encodeURIComponent(emailInput)}; expires=${expires}; path=/`;
+
+//     showWelcomeMessageOrForm();
+// }
+
+// function showCookies() {
+//     const email = getCookie('email');
+//     const firstName = getCookie('firstname');
+
+//     const cookiesContainer = document.createElement('p');
+//     cookiesContainer.textContent = `Email: ${email} - Firstname: ${firstName}`;
+//     document.body.appendChild(cookiesContainer);
+// }
+
+// function getCookie(name) {
+//     const decodedCookie = decodeURIComponent(document.cookie);
+//     const cookies = decodedCookie.split(';');
+//     for (let cookie of cookies) {
+//         const [cookieName, cookieValue] = cookie.trim().split('=');
+//         if (cookieName === name) {
+//             return cookieValue;
+//         }
+//     }
+//     return '';
+// }
+
+// function deleteCookiesAndShowForm() {
+//     document.cookie = 'firstname=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+//     document.cookie = 'email=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+//     showForm();
+// }
+
+// function showForm() {
+//     const welcomeMessage = document.getElementById('welcomeMessage');
+//     if (welcomeMessage) {
+//         welcomeMessage.style.display = 'none';
+//     }
+//     const loginForm = document.getElementById('loginForm');
+//     if (loginForm) {
+//         loginForm.style.display = 'block';
+//     }
+// }
+
+// function hideForm() {
+//     const loginForm = document.getElementById('loginForm');
+//     if (loginForm) {
+//         loginForm.style.display = 'none';
+//     }
+// }
+
+// function showWelcomeMessageOrForm() {
+//     const firstName = getCookie('firstname');
+//     if (firstName) {
+//         hideForm();
+//         const welcomeMessage = document.getElementById('welcomeMessage');
+//         welcomeMessage.style.display = 'block';
+//         welcomeMessage.textContent = `Welcome : ${decodeURIComponent(firstName)}`;
+//         const logoutLink = document.createElement('a');
+//         logoutLink.href = '#';
+//         logoutLink.textContent = '(logout)';
+//         logoutLink.id = 'logout';
+//         logoutLink.style.fontWeight = 'normal';
+//         logoutLink.style.fontStyle = 'italic';
+//         logoutLink.style.marginLeft = '10px';
+//         logoutLink.addEventListener('click', function () {
+//             deleteCookiesAndShowForm();
+//             welcomeMessage.style.display = 'none';
+//         });
+//         welcomeMessage.appendChild(logoutLink);
+//     } else {
+//         showForm();
+//     }
+// }
+////!1 **** Use js-cookie
 document.addEventListener('DOMContentLoaded', () => {
     showWelcomeMessageOrForm();
     document.getElementById('loginBtn').addEventListener('click', setCookies);
@@ -179,7 +272,7 @@ function showWelcomeMessageOrForm() {
         hideForm();
         const welcomeMessage = document.getElementById('welcomeMessage');
         welcomeMessage.style.display = 'block';
-        welcomeMessage.textContent = `Welcome ${decodeURIComponent(firstName)}`;
+        welcomeMessage.textContent = `Welcome : ${decodeURIComponent(firstName)}`;
         const logoutLink = document.createElement('a');
         logoutLink.href = '#';
         logoutLink.textContent = '(logout)';
