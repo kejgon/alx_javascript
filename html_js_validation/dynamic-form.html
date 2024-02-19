@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    .container {
+        width: 60%;
+        margin: 0 auto;
+        margin-top: 50px;
+        padding: 20px;
+        box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.24);
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding-bottom: 50px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        background-color: #2a7197;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #1aaaf7;
+    }
+
+    .error {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form id="dynamicForm">
+            <label for="numFields">Number of Fields:</label>
+            <select id="numFields" name="numFields">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div id="inputContainer"></div>
+            <button type="submit">Submit</button>
+            <p id="error" class="error"></p>
+        </form>
+    </div>
+    <script src="2-dynamic-form.js"></script>
+</body>
+
+</html>
